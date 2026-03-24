@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import {
   ALL_NATURES_LABEL,
+  capitalizeWord,
   NATURE_OPTIONS,
   type Word,
 } from "./dictionary-shared";
@@ -364,7 +365,7 @@ export default function Home() {
 
             <div className="mb-8 pr-16">
               <h2 className="mb-3 text-4xl font-bold text-primary">
-                {selectedWord.word}
+                {capitalizeWord(selectedWord.word)}
               </h2>
               <span className="inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
                 {selectedWord.nature}

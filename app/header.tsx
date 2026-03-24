@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "./theme-provider";
+import { capitalizeWord } from "./dictionary-shared";
 
 interface HeaderProps {
   searchQuery: string;
@@ -16,7 +17,7 @@ interface HeaderProps {
 }
 
 const filterButtonClass = (isActive: boolean) =>
-  `rounded-full px-3.5 py-1.5 text-[11.3px] font-semibold transition-all ${
+  `rounded-full px-4.5 py-2 text-[13px] font-semibold transition-all ${
     isActive
       ? "bg-amber-100 text-slate-900 ring-1 ring-amber-200"
       : "bg-white/85 text-black hover:bg-white"
@@ -184,7 +185,7 @@ export function Header({
                 onClick={() => onNatureFilterChange(option)}
                 className={filterButtonClass(natureFilter === option)}
               >
-                {option}
+                {capitalizeWord(option)}
               </button>
             ))}
           </div>

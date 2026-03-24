@@ -21,6 +21,7 @@ export const NATURE_OPTIONS = [
   "préposition",
   "conjonction",
   "interjection",
+  "expression",
   "autre",
 ] as const;
 
@@ -35,3 +36,6 @@ export const normalizeWord = (value: string) =>
     .replace(/\p{Diacritic}/gu, "")
     .trim()
     .toLowerCase();
+
+export const capitalizeWord = (value: string) =>
+  value ? value.charAt(0).toUpperCase() + value.slice(1) : value;

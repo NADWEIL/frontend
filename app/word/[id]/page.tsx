@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import type { Word } from "../../dictionary-shared";
+import { capitalizeWord, type Word } from "../../dictionary-shared";
 
 export default function WordDetail() {
   const params = useParams();
@@ -119,7 +119,7 @@ export default function WordDetail() {
           <div className="relative z-10">
             <div className="mb-8">
               <h2 className="text-5xl md:text-6xl font-bold text-primary mb-4 drop-shadow-sm">
-                {word.word}
+                {capitalizeWord(word.word)}
               </h2>
               <div className="mb-4">
                 <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20">

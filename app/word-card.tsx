@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Word } from "./dictionary-shared";
+import { capitalizeWord, type Word } from "./dictionary-shared";
 
 interface WordCardProps {
   word: Word;
@@ -30,8 +30,8 @@ export function WordCard({
     <div
       className={`group bg-gradient-to-br rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 border transform hover:-translate-y-1 ${
         isHighlighted
-          ? "from-amber-50 to-white dark:from-amber-950/20 dark:to-gray-900 border-amber-300 ring-2 ring-amber-200/80"
-          : "from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-gray-200 dark:border-gray-700 hover:border-primary/30"
+          ? "from-amber-50 to-white dark:from-amber-950/30 dark:to-gray-950 border-amber-300 dark:border-amber-700/60 ring-2 ring-amber-200/80 dark:ring-amber-700/30"
+          : "from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 border-gray-200 dark:border-gray-700/80 hover:border-primary/30"
       }`}
     >
       <div className="flex items-start justify-between mb-3">
@@ -40,7 +40,7 @@ export function WordCard({
           onClick={() => onOpenDetails(word)}
           className="text-xl font-bold text-primary hover:text-primary/80 transition-colors group-hover:scale-105 transform duration-200"
         >
-          {word.word}
+          {capitalizeWord(word.word)}
         </button>
         <button
           onClick={() => onToggleFavorite(word.id)}

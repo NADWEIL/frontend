@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   ALL_NATURES_LABEL,
+  capitalizeWord,
   getExamplesText,
   NATURE_OPTIONS,
   normalizeWord,
@@ -402,7 +403,7 @@ export default function AdminDashboard() {
                             className="w-full p-2 border border-gray-300 rounded"
                           />
                         ) : (
-                          item.word
+                          capitalizeWord(item.word)
                         )}
                       </td>
                       <td className="px-4 py-3">

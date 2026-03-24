@@ -7,6 +7,8 @@ type Language = "shimaorais" | "french";
 interface ThemeCardItem {
   french: string;
   shimaorais: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 interface ThemeLanguageCardsProps {
@@ -25,7 +27,7 @@ const themeCardClass =
   "group rounded-[1.15rem] border border-primary/10 bg-white/92 p-2.5 shadow-[0_12px_20px_rgba(17,24,39,0.06)] transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_16px_24px_rgba(88,204,2,0.16)] dark:border-primary/15 dark:bg-gray-900/92";
 
 const themeCardLabelClass =
-  "text-[11px] font-semibold uppercase tracking-[0.18em] text-primary/85";
+  "text-[13px] font-semibold uppercase tracking-[0.18em] text-primary/85 md:text-[14px]";
 
 const themeCardTitleClass =
   "mt-1.5 text-lg font-semibold uppercase tracking-normal text-gray-900 transition group-hover:text-primary dark:text-white";
@@ -103,6 +105,15 @@ export function ThemeLanguageCards({
               key={`${item.french}-${item.shimaorais}`}
               className={`${themeCardClass} scroll-mt-28`}
             >
+              {item.imageSrc ? (
+                <div className="mb-2.5 overflow-hidden rounded-[0.95rem] border border-primary/10 bg-[linear-gradient(135deg,_rgba(225,246,211,0.85),_rgba(255,255,255,0.95))] dark:border-primary/15 dark:bg-[linear-gradient(135deg,_rgba(46,62,46,0.95),_rgba(22,28,22,0.98))]">
+                  <img
+                    src={item.imageSrc}
+                    alt={item.imageAlt || item.french}
+                    className="h-32 w-full object-cover"
+                  />
+                </div>
+              ) : null}
               {cardLabel ? <p className={themeCardLabelClass}>{cardLabel}</p> : null}
               <h2 className={themeCardTitleClass}>{primaryValue}</h2>
               <div className={themeCardDividerClass} />
